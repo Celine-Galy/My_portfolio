@@ -1,4 +1,5 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
+import { HeaderComponent } from './components/header/header.component';
 
 const BASE_MODULES: [] = [];
 const COMPONENTS: never[] = [];

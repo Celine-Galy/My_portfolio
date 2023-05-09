@@ -10,4 +10,7 @@ export class Article {
 
   @Column()
   content: string;
+
+  @Column()
+  date: Date;
 }

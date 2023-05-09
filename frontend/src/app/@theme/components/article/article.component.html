@@ -1,6 +1,15 @@
-<h2>article works!</h2>
-<div *ngFor="let article of articleList">
-    <h3>{{article.title}}</h3>
-    <p>{{article.content}}</p>
-</div>
- 
+
+<div class="row">
+    <div class="col s12 m6">
+      <div *ngFor="let article of articleList" class="card grey darken-3">
+        <div class="card-content white-text">
+          <span class="card-title">{{article.title}}</span>
+          <p>{{article.content}}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Voir l'article</a>
+    
+        </div>
+      </div>
+    </div>
+  </div>

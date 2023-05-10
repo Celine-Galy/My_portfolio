@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
@@ -33,7 +34,6 @@ export class ArticlesController {
   update(@Body() article: Article) {
     return this.service.updateArticle(article);
   }
-
   @Delete(':id')
   deleteArticle(@Param() params) {
     return this.service.deleteArticle(params.id);

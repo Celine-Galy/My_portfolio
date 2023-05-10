@@ -11,6 +11,9 @@ export class Article {
   @Column()
   content: string;
 
-  @Column()
+  @Column({ nullable: true })
   date: Date;
+
+  @Column({ default: false })
+  published: boolean;
 }

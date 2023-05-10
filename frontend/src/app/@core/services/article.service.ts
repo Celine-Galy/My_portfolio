@@ -12,10 +12,23 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ArticleService {
+
   url = 'http://localhost:3000'
   constructor(private http: HttpClient) { }
 
   getAllArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(this.url + '/articles', httpOptions)
+  }
+  getArticle(id: number): Observable<Article> {
+    return this.http.get<Article>(this.url + '/articles/' + id, httpOptions)
+  }
+  addArticle(article: Article) {
+    return this.http.post(this.url + '/articles', article, httpOptions)
+  }
+  deleteArticle(id: number) {
+    return this.http.delete(this.url + '/articles/' + id, httpOptions)
+  }
+  updateArticle(article: Article) {
+    return this.http.put(this.url + '/articles/', article, httpOptions)
   }
 }

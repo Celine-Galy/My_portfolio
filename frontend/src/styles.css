@@ -11,6 +11,10 @@ app-header {
   flex: 0 0 auto;
   height: 100vh;
 }
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
 input{
   border: none;
   border-bottom: 1px solid #000000;
@@ -110,6 +114,10 @@ body {
 }
 .text-center{
   text-align: center;
+}
+
+.hidden{
+ display: none;
 }
 /* ---------------------------------------------------------- */
 /* Buttons */

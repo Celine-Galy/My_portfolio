@@ -18,7 +18,7 @@ export class ArticlesService {
 
   async getArticle(_id: number): Promise<Article[]> {
     return await this.articlesRepository.find({
-      select: ['title', 'content', 'date'],
+      select: ['id', 'title', 'content', 'date', 'published'],
       where: [{ id: _id }],
     });
   }

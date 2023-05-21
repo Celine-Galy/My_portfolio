@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Article } from '../api/models';
+import { Article, ArticlePatch } from '../api/models';
 import { Observable } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({
@@ -28,7 +28,7 @@ export class ArticleService {
   deleteArticle(id: number) {
     return this.http.delete(this.url + '/articles/' + id, httpOptions)
   }
-  updateArticle(article: Article) {
+  updateArticle(article: ArticlePatch) {
     return this.http.put(this.url + '/articles/', article, httpOptions)
   }
 }

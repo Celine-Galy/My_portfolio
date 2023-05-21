@@ -10,6 +10,7 @@ import { HeaderComponent } from './@theme/components/header/header.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddArticleComponent } from './@theme/components/add-article/add-article.component';
+import { EditArticleComponent } from './@theme/components/edit-article/edit-article.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AddArticleComponent } from './@theme/components/add-article/add-article
     NavbarComponent,
     HeaderComponent,
     AdminComponent,
-    AddArticleComponent
+    AddArticleComponent,
+    EditArticleComponent
   ],
   imports: [
     BrowserModule,

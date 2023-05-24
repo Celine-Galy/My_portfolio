@@ -8,7 +8,7 @@ export class Article {
   @Column({ length: 50 })
   title: string;
 
-  @Column()
+  @Column('text')
   content: string;
 
   @Column({ nullable: true })

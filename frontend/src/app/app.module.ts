@@ -11,6 +11,9 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddArticleComponent } from './@theme/components/add-article/add-article.component';
 import { EditArticleComponent } from './@theme/components/edit-article/edit-article.component';
+import { LoginComponent } from './@theme/components/login/login.component';
+import { TokenInterceptorProvider } from './helpers/token.interceptor';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -22,7 +25,8 @@ import { EditArticleComponent } from './@theme/components/edit-article/edit-arti
     HeaderComponent,
     AdminComponent,
     AddArticleComponent,
-    EditArticleComponent
+    EditArticleComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +34,9 @@ import { EditArticleComponent } from './@theme/components/edit-article/edit-arti
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-  
+    CKEditorModule,
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,25 @@
+:host{
+    display: inline-flex;
+    position: fixed;
+    width: 100%;
+    background-color: aliceblue;
+}
+a{
+    text-decoration: none;
+    display: flex;
+    align-self: center;
+}
+.nav{
+    justify-content: space-between;
+    width: 100%;
+
+}
+.nav-links li{
+    margin: 0 1rem 0 1rem;
+    list-style: none;
+    display: flex;
+    align-self: center;
+}
+.active {
+    background-color: orange;
+  }

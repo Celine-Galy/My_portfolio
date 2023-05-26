@@ -6,9 +6,12 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from 'src/guards/auth.guards';
 import { Article } from 'src/models/articles/article.entity';
 import { ArticlesService } from 'src/services/articles/articles.service';
+import { Public } from 'src/utils/public.decorator';
 
 @Controller('articles')
 export class ArticlesController {
@@ -19,6 +22,7 @@ export class ArticlesController {
     return this.service.getArticle(params.id);
   }
 
+  @Public()
   @Get()
   getArticles() {
     console.log('getArticles');
@@ -29,6 +33,7 @@ export class ArticlesController {
     return this.service.createArticle(article);
   }
 
+  @UseGuards(AuthGuard)
   @Put()
   update(@Body() article: Article) {
     return this.service.updateArticle(article);

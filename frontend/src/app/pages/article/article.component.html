@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Blog</h1>
+      <div *ngFor="let article of articleList" class="card p-1 flex row">
+        <div class="card-image">
+          <img src="https://picsum.photos/200/300" />
+          </div>
+        <div class="card-content flex column w-100 ml-2">
+          <span class="card-title">{{article.title}}</span>
+          <p [ngClass]="{'hidden': displayArticle}">{{article.content | slice:0:100}}</p>
+          <div class="card-action">
+            <a [ngClass]="{'hidden': displayArticle}" (click)="displayArticle = !displayArticle">Voir l'article</a>
+            <p [ngClass]="{ 'hidden': !displayArticle }">{{ article.content }}</p>
+       </div>
+       <a [ngClass]="{'hidden': !displayArticle}" (click)="displayArticle = !displayArticle">Réduire</a>
+        </div>
+  </div>
+</div>

@@ -12,3 +12,18 @@ export interface Article {
     date?: Date
     published?: boolean
   }
+  export interface User {
+    id: number
+    username: string
+    password: string
+    email: string
+    admin: boolean
+  }
+  export interface ITokenUser {
+    id: number
+    username: string
+  };
+  export interface ICredential {
+    username: string
+    password: string
+  }

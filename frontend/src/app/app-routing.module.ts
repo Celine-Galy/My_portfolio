@@ -5,13 +5,16 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { AddArticleComponent } from './@theme/components/add-article/add-article.component';
 import { EditArticleComponent } from './@theme/components/edit-article/edit-article.component';
+import { LoginComponent } from './@theme/components/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'accueil', component: HomepageComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', canActivate: [AuthGuard], component: AdminComponent },
   { path: 'article', component: ArticleComponent },
   { path: 'ajouter', component: AddArticleComponent },
   { path: 'edit/:id', component: EditArticleComponent },
+  { path: 'login', component: LoginComponent},
   {
     path: '',
     redirectTo: 'accueil',

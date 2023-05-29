@@ -8,7 +8,6 @@ import { ArticleService } from 'src/app/@core/services/article.service';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit{
-  public displayArticle = false;
   public articleList: Article[] = [];
 
     constructor(private articleService: ArticleService) { }

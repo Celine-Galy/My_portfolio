@@ -30,4 +30,7 @@ export class ArticlesService {
   async deleteArticle(article: Article) {
     this.articlesRepository.delete(article);
   }
+  async uploadFile(file: Express.Multer.File) {
+    console.log(file);
+  }
 }

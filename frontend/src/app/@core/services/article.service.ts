@@ -32,4 +32,11 @@ export class ArticleService {
   updateArticle(article: ArticlePatch) {
     return this.http.put(this.url + '/articles/', article, httpOptions)
   }
+  uploadFile(file: File): Observable<Blob> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<Blob>(this.url + '/articles/upload', formData, {
+      responseType: 'blob' as 'json',
+    });
+  }
 }

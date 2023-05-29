@@ -14,6 +14,9 @@ export class Article {
   @Column({ nullable: true })
   date: Date;
 
+  @Column({ nullable: true })
+  image: string;
+
   @Column({ default: false })
   published: boolean;
 }

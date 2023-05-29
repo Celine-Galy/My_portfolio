@@ -10,6 +10,14 @@
           placeholder="Titre*"
           required
         />
+        <input
+        type="file"
+        (change)="onFileSelected($event)"
+        class="form-control"
+        formControlName="image"
+        placeholder="Image*"
+        required
+      />
         </div>
         <div class="form-group mt-2">
            <ckeditor [editor]="Editor" class="form-control" formControlName="content"></ckeditor>

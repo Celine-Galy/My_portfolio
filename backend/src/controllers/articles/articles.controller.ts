@@ -6,12 +6,17 @@ import {
   Param,
   Post,
   Put,
+  UploadedFile,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { config } from 'process';
 import { AuthGuard } from 'src/guards/auth.guards';
 import { Article } from 'src/models/articles/article.entity';
 import { ArticlesService } from 'src/services/articles/articles.service';
 import { Public } from 'src/utils/public.decorator';
+import { storage } from 'src/utils/storage.config';
 
 @Controller('articles')
 export class ArticlesController {
@@ -20,6 +25,12 @@ export class ArticlesController {
   @Get(':id')
   get(@Param() params) {
     return this.service.getArticle(params.id);
+  }
+
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file', { storage }))
+  uploadFile(@UploadedFile() file: Express.Multer.File) {
+    console.log('file', file);
   }
 
   @Public()

@@ -13,7 +13,8 @@ import { ArticleService } from 'src/app/@core/services/article.service';
 })
 export class AddArticleComponent implements OnInit{
   form!: FormGroup
-  public Editor = ClassicEditor;
+  public Editor = ClassicEditor
+  public selectedFile: File | undefined
   
   constructor(
     private formBuilder: FormBuilder,
@@ -25,13 +26,21 @@ ngOnInit(): void {
   this.form = this.formBuilder.group({
     title: ['', Validators.required],
     content: ['', Validators.required],
+    image: this.selectedFile,
     date: new Date(),
   });
 }
-// }
+
 onSubmit() {
-  
+
  if (this.form.valid) {
+  if (this.selectedFile) {
+    this.articleService.uploadFile(this.selectedFile).subscribe({
+      next: (res) => {
+        console.log(res)
+      }
+    })
+  }
   this.articleService
   .addArticle(this.form.value)
   .pipe(first())
@@ -41,13 +50,14 @@ onSubmit() {
       }
     });
   }
-  // if (this.form.valid && this.id) {
-  //   console.log(this.form.value)
-  //   this.editArticle(this.id)
- 
-  // }
   else {
     console.log(this.form, 'form is not valid')
+  }
+}
+onFileSelected(event : any) {
+  if (event.target) {
+    this.selectedFile = <File>event.target.files[0]
+    console.log(this.selectedFile)
   }
 }
 }

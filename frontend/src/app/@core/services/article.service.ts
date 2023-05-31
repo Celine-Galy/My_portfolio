@@ -39,4 +39,5 @@ export class ArticleService {
       responseType: 'blob' as 'json',
     });
   }
+  
 }

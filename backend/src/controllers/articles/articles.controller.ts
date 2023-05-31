@@ -6,12 +6,14 @@ import {
   Param,
   Post,
   Put,
+  Res,
   UploadedFile,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { config } from 'process';
+import { join } from 'path';
+import { Observable, of } from 'rxjs';
 import { AuthGuard } from 'src/guards/auth.guards';
 import { Article } from 'src/models/articles/article.entity';
 import { ArticlesService } from 'src/services/articles/articles.service';
@@ -31,6 +33,11 @@ export class ArticlesController {
   @UseInterceptors(FileInterceptor('file', { storage }))
   uploadFile(@UploadedFile() file: Express.Multer.File) {
     console.log('file', file);
+  }
+  @Public()
+  @Get('uploads/:imgpath')
+  getImage(@Param('imgpath') imgpath, @Res() res): Observable<Object> {
+    return of(res.sendFile(join(process.cwd(), 'uploads/' + imgpath)));
   }
 
   @Public()

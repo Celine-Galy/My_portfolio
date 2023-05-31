@@ -2,7 +2,7 @@
   <h1>Blog</h1>
       <div *ngFor="let article of articleList" class="card p-1 flex row">
         <div class="card-image">
-          <img src="https://picsum.photos/200/300" />
+          <img src="http://localhost:3000/articles/uploads/{{ article.image }}" width="300" height="285"/>
           </div>
         <div class="card-content flex column w-100 ml-2">
           <span class="card-title">{{article.title}}</span>

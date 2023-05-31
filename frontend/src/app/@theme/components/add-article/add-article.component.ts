@@ -15,6 +15,7 @@ export class AddArticleComponent implements OnInit{
   form!: FormGroup
   public Editor = ClassicEditor
   public selectedFile: File | undefined
+  public filename: string | undefined
   
   constructor(
     private formBuilder: FormBuilder,
@@ -26,7 +27,7 @@ ngOnInit(): void {
   this.form = this.formBuilder.group({
     title: ['', Validators.required],
     content: ['', Validators.required],
-    image: this.selectedFile,
+    image: [''],
     date: new Date(),
   });
 }
@@ -35,6 +36,7 @@ onSubmit() {
 
  if (this.form.valid) {
   if (this.selectedFile) {
+    this.form.value.image = this.selectedFile.name
     this.articleService.uploadFile(this.selectedFile).subscribe({
       next: (res) => {
         console.log(res)
@@ -57,7 +59,8 @@ onSubmit() {
 onFileSelected(event : any) {
   if (event.target) {
     this.selectedFile = <File>event.target.files[0]
-    console.log(this.selectedFile)
+    console.log('selectedFile', this.selectedFile)
+    this.filename = this.selectedFile.name
   }
 }
 }

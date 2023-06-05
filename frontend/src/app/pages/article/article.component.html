@@ -1,14 +1,18 @@
-<div class="container">
-  <h1>Blog</h1>
+
+<app-menu
+class="min-w-20"></app-menu>
+
+<div class="container w-80">
+  <h1>Dev & compagnie</h1>
       <div *ngFor="let article of articleList" class="card p-1 flex row">
-        <div class="card-image">
-          <img src="http://localhost:3000/articles/uploads/{{ article.image }}" width="300" height="285"/>
-          </div>
-        <div class="card-content flex column w-100 ml-2">
-          <span class="card-title">{{article.title}}</span>
+           <div class="card-content ml-2">
+                      <h2 class="card-title">{{article.title}}</h2>
+                      <p class="card-subtitle">Publié le: {{article.date | date: 'dd/MM/yyyy'}}</p>
+          <img class="card-image" src="http://localhost:3000/articles/uploads/{{ article.image }}" width="300" height="285"/>
+    
           <p [innerHTML]="article.content"></p>
           <div class="card-action">
-      
+      <a [routerLink]="['/article', article.id]">Read more</a>
        </div>
       
         </div>

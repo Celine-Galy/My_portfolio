@@ -5,6 +5,7 @@ export interface Article {
     image: string
     date: Date
     published: boolean
+    category: Category
   }
   export interface ArticlePatch {
     id?: number
@@ -19,6 +20,10 @@ export interface Article {
     password: string
     email: string
     admin: boolean
+  }
+  export interface Category {
+    id: number
+    name: string
   }
   export interface ITokenUser {
     id: number

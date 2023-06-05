@@ -14,6 +14,8 @@ import { EditArticleComponent } from './@theme/components/edit-article/edit-arti
 import { LoginComponent } from './@theme/components/login/login.component';
 import { TokenInterceptorProvider } from './helpers/token.interceptor';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { MenuComponent } from './@theme/components/menu/menu.component';
+import { AddCategoryComponent } from './@theme/components/add-category/add-category.component';
 
 
 @NgModule({
@@ -25,8 +27,10 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     HeaderComponent,
     AdminComponent,
     AddArticleComponent,
+    AddCategoryComponent,
     EditArticleComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

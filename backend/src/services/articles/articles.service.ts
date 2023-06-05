@@ -13,12 +13,14 @@ export class ArticlesService {
   }
 
   async getArticles(): Promise<Article[]> {
-    return await this.articlesRepository.find();
+    return await this.articlesRepository.find({
+      relations: ['category'],
+    });
   }
 
   async getArticle(_id: number): Promise<Article[]> {
     return await this.articlesRepository.find({
-      select: ['id', 'title', 'content', 'date', 'published'],
+      select: ['id', 'title', 'content', 'date', 'published', 'category'],
       where: [{ id: _id }],
     });
   }

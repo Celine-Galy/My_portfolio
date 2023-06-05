@@ -7,13 +7,15 @@ import { AddArticleComponent } from './@theme/components/add-article/add-article
 import { EditArticleComponent } from './@theme/components/edit-article/edit-article.component';
 import { LoginComponent } from './@theme/components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AddCategoryComponent } from './@theme/components/add-category/add-category.component';
 
 const routes: Routes = [
-  { path: 'accueil', component: HomepageComponent },
+  { path: '', component: HomepageComponent },
   { path: 'admin', canActivate: [AuthGuard], component: AdminComponent },
   { path: 'article', component: ArticleComponent },
-  { path: 'ajouter', component: AddArticleComponent },
-  { path: 'edit/:id', component: EditArticleComponent },
+  { path: 'ajouter', canActivate: [AuthGuard], component: AddArticleComponent },
+  { path: 'edit/:id', canActivate: [AuthGuard], component: EditArticleComponent },
+  { path: 'ajouter-categorie', canActivate: [AuthGuard], component: AddCategoryComponent },
   { path: 'login', component: LoginComponent},
   {
     path: '',

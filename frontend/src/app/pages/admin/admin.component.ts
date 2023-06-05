@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit{
   ngOnInit(): void {
     this.articleService.getAllArticles().subscribe((articles) => {
       this.articleList = articles;
-      console.log(this.articleList)
+      console.log('articles', this.articleList)
         })
   }
 

@@ -1,11 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Category } from '../category/category.entity';
 
 @Entity('articles')
 export class Article {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 50 })
+  @Column({ length: 250 })
   title: string;
 
   @Column('text')
@@ -19,4 +20,7 @@ export class Article {
 
   @Column({ default: false })
   published: boolean;
+
+  @ManyToOne(() => Category, (category) => category.articles)
+  category: Category;
 }

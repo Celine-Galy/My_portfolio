@@ -1,4 +1,5 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
+import { AddCategoryComponent } from './components/add-category/add-category.component';
 
 
 const BASE_MODULES: [] = [];

@@ -36,7 +36,7 @@ export class ArticlesController {
   }
   @Public()
   @Get('uploads/:imgpath')
-  getImage(@Param('imgpath') imgpath, @Res() res): Observable<Object> {
+  getImage(@Param('imgpath') imgpath, @Res() res): Observable<any> {
     return of(res.sendFile(join(process.cwd(), 'uploads/' + imgpath)));
   }
 

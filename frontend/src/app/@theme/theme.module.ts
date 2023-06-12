@@ -1,6 +1,4 @@
-import { ModuleWithProviders, NgModule } from "@angular/core";
-import { AddCategoryComponent } from './components/add-category/add-category.component';
-
+import { ModuleWithProviders, NgModule } from "@angular/core"
 
 const BASE_MODULES: [] = [];
 const COMPONENTS: never[] = [];

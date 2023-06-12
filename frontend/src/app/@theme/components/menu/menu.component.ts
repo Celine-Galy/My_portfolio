@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  EventEmitter, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Category } from 'src/app/@core/api/models';
 import { CategoryService } from 'src/app/@core/services/category.service';
+import { SelectionService } from 'src/app/@core/services/selection.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,10 +9,10 @@ import { CategoryService } from 'src/app/@core/services/category.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit{
-
-  public categoryList: Category[] = []
-
-  constructor(private service: CategoryService) { }
+public categoryList: Category[] = []
+public selectedCategory: string = ''
+  constructor(private service: CategoryService,
+    private selectionService: SelectionService) { }
 
   ngOnInit(): void {
     this.service.getAllCategories().subscribe((categories) => {
@@ -20,4 +21,10 @@ export class MenuComponent implements OnInit{
     })
   }
 
+public searchByCategory(category: string): void {
+ this.service.getCategoryByName(category).subscribe((category) => {
+    console.log('categoryMenu', category)
+    this.selectionService.setSelectedCategory(category)
+  })
+}
 }

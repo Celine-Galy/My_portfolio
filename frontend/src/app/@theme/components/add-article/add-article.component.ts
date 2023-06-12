@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { first } from 'rxjs';
+import { Category } from 'src/app/@core/api/models';
 import { ArticleService } from 'src/app/@core/services/article.service';
+import { CategoryService } from 'src/app/@core/services/category.service';
 
 
 @Component({
@@ -13,6 +15,7 @@ import { ArticleService } from 'src/app/@core/services/article.service';
 })
 export class AddArticleComponent implements OnInit{
   form!: FormGroup
+  public categoryList: Category[] = []
   public Editor = ClassicEditor
   public selectedFile: File | undefined
   public filename: string | undefined
@@ -21,13 +24,19 @@ export class AddArticleComponent implements OnInit{
     private formBuilder: FormBuilder,
     private articleService: ArticleService,
     private route: ActivatedRoute,
-    private router: Router,) { }
+    private router: Router,
+    private categoryService: CategoryService) { }
 
 ngOnInit(): void {
+this.categoryService.getAllCategories().subscribe((categories) => {
+  console.log('categories', categories)
+  this.categoryList = categories
+})
   this.form = this.formBuilder.group({
     title: ['', Validators.required],
     content: ['', Validators.required],
     image: [''],
+    category: ['', Validators.required],
     date: new Date(),
   });
 }

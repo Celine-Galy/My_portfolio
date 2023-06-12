@@ -3,7 +3,6 @@ import { UserService } from "./user.service";
 import { Router } from "@angular/router";
 import jwtDecode from "jwt-decode";
 import { ITokenUser, User } from "../api/models";
-import { AuthService } from "./auth.service";
 import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({

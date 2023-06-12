@@ -24,6 +24,7 @@ export interface Article {
   export interface Category {
     id: number
     name: string
+    articles: Article[]
   }
   export interface ITokenUser {
     id: number

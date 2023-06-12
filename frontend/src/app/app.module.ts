@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { ArticleComponent } from './pages/article/article.component';
+import { ArticleComponent } from './@theme/components/article/article.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './@theme/components/navbar/navbar.component';
 import { HeaderComponent } from './@theme/components/header/header.component';
@@ -16,6 +16,7 @@ import { TokenInterceptorProvider } from './helpers/token.interceptor';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MenuComponent } from './@theme/components/menu/menu.component';
 import { AddCategoryComponent } from './@theme/components/add-category/add-category.component';
+import { BlogComponent } from './pages/blog/blog.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AddCategoryComponent } from './@theme/components/add-category/add-categ
     AddCategoryComponent,
     EditArticleComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

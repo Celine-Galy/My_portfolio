@@ -28,12 +28,6 @@ export class ArticlesController {
   get(@Param() params) {
     return this.service.getArticle(params.id);
   }
-
-  @Post('upload')
-  @UseInterceptors(FileInterceptor('file', { storage }))
-  uploadFile(@UploadedFile() file: Express.Multer.File) {
-    console.log('file', file);
-  }
   @Public()
   @Get('uploads/:imgpath')
   getImage(@Param('imgpath') imgpath, @Res() res): Observable<any> {
@@ -46,6 +40,12 @@ export class ArticlesController {
     console.log('getArticles');
     return this.service.getArticles();
   }
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file', { storage }))
+  uploadFile(@UploadedFile() file: Express.Multer.File) {
+    console.log('file', file);
+  }
+
   @Post()
   create(@Body() article: Article) {
     return this.service.createArticle(article);

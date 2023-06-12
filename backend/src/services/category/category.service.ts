@@ -15,4 +15,11 @@ export class CategoryService {
   async getAllCategories() {
     return await this.categoryRepository.find();
   }
+  async getCategoryByName(name: string): Promise<Category[]> {
+    return await this.categoryRepository.find({
+      relations: { articles: true },
+      select: ['id', 'name', 'articles'],
+      where: [{ name: name }],
+    });
+  }
 }

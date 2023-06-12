@@ -10,15 +10,22 @@
           placeholder="Titre*"
           required
         />
+        </div>
+        <div class="form-group">
         <input
         type="file"
         (change)="onFileSelected($event)"
-        class="form-control"
+        class="form-control mt-1"
         formControlName="image"
-        placeholder="Image*"
         required
       />
-        </div>
+     </div>
+ <div class="form-group">
+        <select class="form-control mt-1" formControlName="category" required>
+          <option value="" disabled selected>Choisir une catégorie*</option>
+          <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
+       </select>
+      </div>
         <div class="form-group mt-2">
            <ckeditor [editor]="Editor" class="form-control" formControlName="content"></ckeditor>
         </div>

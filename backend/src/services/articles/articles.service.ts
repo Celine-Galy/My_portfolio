@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Article } from 'src/models/articles/article.entity';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 
 @Injectable()
 export class ArticlesService {
@@ -24,7 +24,6 @@ export class ArticlesService {
       where: [{ id: _id }],
     });
   }
-
   async updateArticle(article: Article) {
     this.articlesRepository.save(article);
   }

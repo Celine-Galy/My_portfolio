@@ -17,6 +17,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MenuComponent } from './@theme/components/menu/menu.component';
 import { AddCategoryComponent } from './@theme/components/add-category/add-category.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { PortfolioComponent } from './@theme/components/portfolio/portfolio.component';
+import { CvComponent } from './@theme/components/cv/cv.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { BlogComponent } from './pages/blog/blog.component';
     EditArticleComponent,
     LoginComponent,
     MenuComponent,
-    BlogComponent
+    BlogComponent,
+    PortfolioComponent,
+    CvComponent
   ],
   imports: [
     BrowserModule,

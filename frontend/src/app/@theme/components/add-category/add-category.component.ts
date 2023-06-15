@@ -23,7 +23,6 @@ export class AddCategoryComponent implements OnInit{
   });
   }
   onSubmit() {
-    console.log(this.form.value)
     if (this.form.valid) {
       this.service.addCategory(this.form.value).subscribe({
         next: () => {

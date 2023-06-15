@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit{
     public onSubmit(): void {
       this.authService.login(this.form).subscribe({
         next: (data) => (
-          console.log('data', data.access_token),
           this.tokenService.saveToken(data.access_token)
         ),
         error: (err) => console.log(err),

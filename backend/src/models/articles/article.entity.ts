@@ -28,5 +28,6 @@ export class Article {
   published: boolean;
 
   @ManyToOne(() => Category, (category) => category.articles)
+  @JoinColumn({ name: 'category', referencedColumnName: 'id' })
   category: Category;
 }

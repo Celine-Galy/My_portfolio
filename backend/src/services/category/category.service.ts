@@ -13,7 +13,9 @@ export class CategoryService {
     return await this.categoryRepository.save(category);
   }
   async getAllCategories() {
-    return await this.categoryRepository.find();
+    return await this.categoryRepository.find({
+      relations: { articles: true },
+    });
   }
   async getCategoryByName(name: string): Promise<Category[]> {
     return await this.categoryRepository.find({

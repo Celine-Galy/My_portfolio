@@ -1,8 +1,7 @@
-import { Component, Input,  OnChanges,  OnInit, SimpleChanges } from '@angular/core';
-import { Article } from 'src/app/@core/api/models';
-import { ArticleService } from 'src/app/@core/services/article.service';
-import { CategoryService } from 'src/app/@core/services/category.service';
-import { SelectionService } from 'src/app/@core/services/selection.service';
+import { Component, Input,  OnChanges,  OnInit, SimpleChanges } from '@angular/core'
+import { Article } from 'src/app/@core/api/models'
+import { ArticleService } from 'src/app/@core/services/article.service'
+import { SelectionService } from 'src/app/@core/services/selection.service'
 
 @Component({
   selector: 'app-article',
@@ -16,15 +15,13 @@ export class ArticleComponent implements OnInit{
 
     constructor(
       private articleService: ArticleService,
-      private categoryService: CategoryService,
       private selectionService: SelectionService
       ) { }
   
     ngOnInit(): void {
    this.selectionService.selectedCategory$.subscribe({
       next: (data) => (
-        this.categoryList = data,
-        console.log('selectedCategory', data)
+        this.categoryList = data
       ),
  
   })

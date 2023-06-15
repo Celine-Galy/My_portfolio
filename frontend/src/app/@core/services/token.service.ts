@@ -47,13 +47,11 @@ public userStorage: ITokenUser = {
     let token = localStorage.getItem('access_token');
     if (token !== null) {
       const decode: ITokenUser = jwtDecode<ITokenUser>(token)
-      console.log('decode',decode);
         const id = decode.id
         this.userService.getUser(id).subscribe({
           next: (data) => (
             this.currentUser = data,
-            this._user$.next(this.currentUser),
-            console.log('current user', this.currentUser)
+            this._user$.next(this.currentUser)
           ),
           error: (err) => console.log(err),
         });

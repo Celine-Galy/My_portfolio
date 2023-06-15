@@ -13,9 +13,7 @@ export class BlogComponent implements OnInit{
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    console.log('selectedCategory', this.selectedCategory)
-    this.articleService.getAllArticles().subscribe((articles) => {
-      console.log('articles', articles)  
+    this.articleService.getAllArticles().subscribe((articles) => { 
       this.articleList = this.articleList
       .filter((article) => article.published === true);
     })

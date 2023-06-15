@@ -11,7 +11,6 @@ export class AuthService {
 
   async signIn(username: string, pass: string) {
     const user = await this.usersService.findOne(username);
-    console.log(user);
     if (!user) {
       throw new UnauthorizedException();
     }
@@ -20,7 +19,6 @@ export class AuthService {
       throw new UnauthorizedException();
     }
     const payload = { id: user.id, username: user.username };
-    console.log(payload);
     return {
       access_token: await this.jwtService.signAsync(payload),
     };

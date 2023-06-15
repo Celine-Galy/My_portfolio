@@ -16,14 +16,12 @@ public selectedCategory: string = ''
 
   ngOnInit(): void {
     this.service.getAllCategories().subscribe((categories) => {
-      this.categoryList = categories;
-      console.log('categories', this.categoryList)
+      this.categoryList = categories.filter((category) => category.articles!.length > 0)
     })
   }
 
 public searchByCategory(category: string): void {
  this.service.getCategoryByName(category).subscribe((category) => {
-    console.log('categoryMenu', category)
     this.selectionService.setSelectedCategory(category)
   })
 }

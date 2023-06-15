@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from "@angular/core"
+import { ModuleWithProviders, NgModule } from "@angular/core";
 
 const BASE_MODULES: [] = [];
 const COMPONENTS: never[] = [];

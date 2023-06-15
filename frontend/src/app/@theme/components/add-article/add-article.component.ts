@@ -29,7 +29,6 @@ export class AddArticleComponent implements OnInit{
 
 ngOnInit(): void {
 this.categoryService.getAllCategories().subscribe((categories) => {
-  console.log('categories', categories)
   this.categoryList = categories
 })
   this.form = this.formBuilder.group({

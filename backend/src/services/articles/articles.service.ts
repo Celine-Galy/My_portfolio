@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Article } from 'src/models/articles/article.entity';
-import { In, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ArticlesService {
@@ -25,7 +25,7 @@ export class ArticlesService {
     });
   }
   async updateArticle(article: Article) {
-    this.articlesRepository.save(article);
+    this.articlesRepository.save(article, { reload: true });
   }
 
   async deleteArticle(article: Article) {

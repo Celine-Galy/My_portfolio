@@ -13,6 +13,7 @@ export interface Article {
     content: string
     date?: Date
     published?: boolean
+    category: Category
   }
   export interface User {
     id: number
@@ -24,7 +25,7 @@ export interface Article {
   export interface Category {
     id: number
     name: string
-    articles: Article[]
+    articles?: Article[]
   }
   export interface ITokenUser {
     id: number

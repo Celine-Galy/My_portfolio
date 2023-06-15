@@ -15,8 +15,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
    this.tokenService.user$.subscribe({
       next: (data) => (
-        this.currentUser = data,
-        console.log('current user', this.currentUser)
+        this.currentUser = data
       ),
       error: (err) => console.log(err),
   })

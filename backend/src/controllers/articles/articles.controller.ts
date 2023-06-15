@@ -37,7 +37,6 @@ export class ArticlesController {
   @Public()
   @Get()
   getArticles() {
-    console.log('getArticles');
     return this.service.getArticles();
   }
   @Post('upload')

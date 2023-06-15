@@ -20,7 +20,6 @@ export class UsersController {
   }
   @Get()
   getUsers() {
-    console.log('getUsers');
     return this.service.getUsers();
   }
   @Post()

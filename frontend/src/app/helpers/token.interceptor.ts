@@ -16,7 +16,6 @@ export class TokenInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
 
     const token = this.tokenService.getToken();
-console.log('token interceptor', token);
     // SI token à insérer dans le header
     if (token !== null) {
       request = request.clone({

@@ -2,7 +2,7 @@
     <h2>Derniers articles</h2>
     <h2>Catégories</h2>
     <ul *ngFor="let category of categoryList">
-        <li (click)="searchByCategory(category.name)" value="selectedCategory" class="m-1 pointer">{{category.name}}</li>
+        <li (click)="searchByCategory(category.name)" value="selectedCategory" class="m-1 pointer">{{category.name}} ({{category.articles!.length}})</li>
     
     </ul>
     </nav>

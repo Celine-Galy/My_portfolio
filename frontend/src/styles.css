@@ -15,6 +15,7 @@ app-login {
 app-header {
   flex: 0 0 auto;
   height: 100vh;
+  overflow: hidden;
 }
 a{
   text-decoration: none;
@@ -126,6 +127,9 @@ body {
 .space-around{
   justify-content: space-around;
 }
+.space-evenly{
+  justify-content: space-evenly;
+}
 .border-none{
   border: none !important;
 }
@@ -133,17 +137,38 @@ body {
 /* ---------------------------------------------------------- */
 /* General classes*/
 /* ---------------------------------------------------------- */
+.card{
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.125);
+}
+.card-content{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  color: #212529;
+}
+.card-title{
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  color: #212529;
+}
 .container{
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin: 5% 5% 5% 5%;
-}
-.logo{
-  margin-left: 1rem;
+  margin: 3% 5% 5% 5%;
 }
 .hidden{
- display: none;
+  display: none;
+ }
+.logo{
+  margin-left: 1rem;
 }
 .pointer{
   cursor: pointer;

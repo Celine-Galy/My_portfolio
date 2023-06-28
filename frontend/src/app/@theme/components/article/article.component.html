@@ -2,16 +2,17 @@
 <app-menu
 class="min-w-20"></app-menu>
 
-<div class="container w-80">
+<div class="container">
   <h1>Dev & compagnie</h1>
   <p>Retrouvez ici tous les articles de la catégorie "Développement Web"</p>
-  <div *ngIf="!categoryList">
-      <div *ngFor="let article of articleList" class="card p-1 flex row">
+  <div *ngIf="!categoryList" class="flex column">
+      <div *ngFor="let article of articleList" class="card p-1">
+       <div>
+        <img class="card-image" src="http://localhost:3000/articles/uploads/{{ article.image }}" width="300"/>
+</div>
            <div class="card-content ml-2">
                       <h2 class="card-title">{{article.title}}</h2>
                       <p class="card-subtitle">Publié le: {{article.date | date: 'dd/MM/yyyy'}}</p>
-          <img class="card-image" src="http://localhost:3000/articles/uploads/{{ article.image }}" width="300"/>
-    
           <p [innerHTML]="article.content"></p>
           <div class="card-action">
       <a [routerLink]="['/article', article.id]">Read more</a>
@@ -21,9 +22,10 @@ class="min-w-20"></app-menu>
   </div>
 </div>
 
-<div *ngIf="categoryList">
-  <div *ngFor="let category of categoryList" class="card p-1 flex row">
-       <div class="card-content ml-2" *ngFor="let article of category.articles">
+<div *ngIf="categoryList" class="flex column">
+  <div *ngFor="let category of categoryList" >
+    <div *ngFor="let article of category.articles" class="card p-1">
+       <div class="card-content ml-2">
                   <h2 class="card-title">{{article.title}}</h2>
                   <p class="card-subtitle">Publié le: {{article.date | date: 'dd/MM/yyyy'}}</p>
       <img class="card-image" src="http://localhost:3000/articles/uploads/{{ article.image }}" width="300"/>
@@ -34,6 +36,7 @@ class="min-w-20"></app-menu>
    </div>
   
     </div>
+  </div>
 </div>
 </div>
 </div>

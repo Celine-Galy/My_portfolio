@@ -64,6 +64,9 @@ body {
 .w-50{
   width: 50%;
 }
+.w-25{
+  width: 25%;
+}
 .min-w-20{
   min-width: 20%;
 }
@@ -130,13 +133,15 @@ body {
 .space-evenly{
   justify-content: space-evenly;
 }
-.border-none{
-  border: none !important;
+.align-items-center{
+  align-items: center;
 }
-
 /* ---------------------------------------------------------- */
 /* General classes*/
 /* ---------------------------------------------------------- */
+.border-none{
+  border: none !important;
+}
 .card{
   margin-bottom: 1.5rem;
   border-radius: 0.25rem;

@@ -19,6 +19,7 @@ import { AddCategoryComponent } from './@theme/components/add-category/add-categ
 import { BlogComponent } from './pages/blog/blog.component';
 import { PortfolioComponent } from './@theme/components/portfolio/portfolio.component';
 import { CvComponent } from './@theme/components/cv/cv.component';
+import { RegisterComponent } from './@theme/components/register/register.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CvComponent } from './@theme/components/cv/cv.component';
     MenuComponent,
     BlogComponent,
     PortfolioComponent,
-    CvComponent
+    CvComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

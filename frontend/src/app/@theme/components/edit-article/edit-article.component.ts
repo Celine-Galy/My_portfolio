@@ -13,6 +13,11 @@ import { CategoryService } from 'src/app/@core/services/category.service';
   styleUrls: ['./edit-article.component.css']
 })
 export class EditArticleComponent implements OnInit{
+  public selectedFile: File | undefined
+  public filename: string | undefined
+  public img = '';
+  public slug = '';
+  public selectedValue: string | undefined;
   public articlePatch: ArticlePatch | null = null
   public categoryList: Category[] = []
   public articleList: Article[] = [];
@@ -21,6 +26,7 @@ export class EditArticleComponent implements OnInit{
     title: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
     content: new FormControl('', Validators.required),
+    image: new FormControl(''),
   });
 
   constructor(
@@ -40,22 +46,33 @@ this.articleService.getAllArticles().subscribe((articles) => {
   this.articleList = this.articleList
   .filter((article) => article.id === Number(this.route.snapshot.params['id']));
   if(this.articleList[0]){
+    this.img = this.articleList[0].image
+    this.selectedValue = this.articleList[0].category.name
     this.myForm.get('title')?.setValue(this.articleList[0].title);
     this.myForm.get('category')?.setValue(this.articleList[0].category.name);
     this.myForm.get('content')?.setValue(this.articleList[0].content);
-    console.log('name', this.articleList[0].category.name)
+    this.myForm.get('image')?.setValue(this.articleList[0].image);
   }
 
     })
 }
 onSubmit() {
   if (this.myForm.valid && this.articleList[0]) {
+    if (this.selectedFile) {
+      this.myForm.value.image = this.selectedFile.name
+      this.articleService.uploadFile(this.selectedFile).subscribe({
+        next: (res) => {
+          console.log(res)
+        }
+      })
+    }
     console.log(this.myForm, 'form is valid')
     this.articlePatch = {
       id: Number(this.route.snapshot.params['id']),
       title: this.myForm.value.title!,
       category: this.categoryList.find((category) => category.id === Number(this.myForm.value.category))!,
       content: this.myForm.value.content!,
+      image: this.myForm.value.image!,
       date: this.articleList[0].date,
       published: false,
     }
@@ -70,4 +87,11 @@ onSubmit() {
   }
 
 }  
+onFileSelected(event : any) {
+  if (event.target) {
+    this.selectedFile = <File>event.target.files[0]
+    console.log('selectedFile', this.selectedFile)
+    this.filename = this.selectedFile.name
+  }
+}
 }

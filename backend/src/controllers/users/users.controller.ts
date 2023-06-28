@@ -8,15 +8,15 @@ import {
   Put,
 } from '@nestjs/common';
 import { User } from 'src/models/users/user.entity';
-import { UsersService } from 'src/services/users/users.service';
+import { UserService } from 'src/services/user/user.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private service: UsersService) {}
+  constructor(private service: UserService) {}
 
   @Get(':id')
-  get(@Param() params) {
-    return this.service.getUser(params.id);
+  get(@Param('id') id: number) {
+    return this.service.getUser(id);
   }
   @Get()
   getUsers() {

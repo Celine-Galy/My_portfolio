@@ -1,4 +1,5 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
+import { RegisterComponent } from './components/register/register.component';
 
 const BASE_MODULES: [] = [];
 const COMPONENTS: never[] = [];

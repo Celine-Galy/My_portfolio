@@ -4,7 +4,7 @@ import { User } from 'src/models/users/user.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class UsersService {
+export class UserService {
   constructor(
     @InjectRepository(User) private usersRepository: Repository<User>,
   ) {}
@@ -30,5 +30,8 @@ export class UsersService {
   async findOne(username: string): Promise<User | undefined> {
     const users = await this.usersRepository.find();
     return users.find((user) => user.username === username);
+  }
+  async create(user: any) {
+    return await this.usersRepository.save(user);
   }
 }

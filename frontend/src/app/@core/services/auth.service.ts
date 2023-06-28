@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICredential } from '../api/models';
+import { ICredential, User } from '../api/models';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,7 +21,10 @@ export class AuthService {
   public login(credentials: ICredential): Observable<any> {
     return this.http.post(this.url, credentials, httpOptions);
   }
-  public getProfile(): Observable<any> {
-    return this.http.get('http://localhost:3000/auth/profile', httpOptions);
+  public register(user: User): Observable<any> {
+    return this.http.post('http://localhost:3000/auth/register', user, httpOptions);
+  }
+  public getProfile(): Observable<User> {
+    return this.http.get<User>('http://localhost:3000/auth/profile', httpOptions);
   }
 }

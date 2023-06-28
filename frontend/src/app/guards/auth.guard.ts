@@ -17,6 +17,7 @@ constructor(private router: Router, private tokenService: TokenService) { }
      | Promise<boolean | UrlTree> 
      | boolean | UrlTree {
     if (this.tokenService.isLogged()) {
+      console.log('is logged')
       return true;
     }
     return this.router.navigate(['login']);

@@ -8,6 +8,7 @@ import { LoginComponent } from './@theme/components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddCategoryComponent } from './@theme/components/add-category/add-category.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { RegisterComponent } from './@theme/components/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'edit/:id', canActivate: [AuthGuard], component: EditArticleComponent },
   { path: 'ajouter-categorie', canActivate: [AuthGuard], component: AddCategoryComponent },
   { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   {
     path: '',
     redirectTo: 'accueil',

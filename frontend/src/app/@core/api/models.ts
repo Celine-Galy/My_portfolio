@@ -11,6 +11,7 @@ export interface Article {
     id?: number
     title?: string
     content: string
+    image?: string
     date?: Date
     published?: boolean
     category: Category

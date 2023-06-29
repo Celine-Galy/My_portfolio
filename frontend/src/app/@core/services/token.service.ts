@@ -25,6 +25,7 @@ public get user$(): Observable<User | undefined> {
 public userStorage: ITokenUser = {
     id: 0,
     username: '',
+    admin: false,
     }
     public saveToken(token: string): void {
         localStorage.setItem('access_token', token);
@@ -32,6 +33,7 @@ public userStorage: ITokenUser = {
       }
       public isLogged(): boolean {
         const token = localStorage.getItem('access_token');
+        console.log('token', token)
        return (!!token)
       }
       public clearToken(): void {

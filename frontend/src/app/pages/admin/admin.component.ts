@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Article } from 'src/app/@core/api/models';
 import { ArticleService } from 'src/app/@core/services/article.service';
@@ -9,6 +9,7 @@ import { ArticleService } from 'src/app/@core/services/article.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit{
+  @Input() isAdmin: boolean = false;
   public articleList: Article[] = [];
   constructor(
     private articleService: ArticleService,

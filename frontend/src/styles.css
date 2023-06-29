@@ -83,16 +83,18 @@ body {
 .m-5{
   margin: 5rem;
 }
+.mb-2{
+  margin-bottom: 2rem;
+}
+.ml-2{
+  margin-left: 2rem;
+}
 .mt-1{
   margin-top: 1rem;
 }
 .mt-2{
   margin-top: 2rem;
 }
-.ml-2{
-  margin-left: 2rem;
-}
-
 /* ---------------------------------------------------------- */
 /* Padding */
 /* ---------------------------------------------------------- */
@@ -101,6 +103,9 @@ body {
 }
 .p-2{
   padding: 2rem;
+}
+.pb-2{
+  padding-bottom: 2rem;
 }
 /* ---------------------------------------------------------- */
 /* Border */
@@ -144,10 +149,10 @@ body {
 }
 .card{
   margin-bottom: 1.5rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.125);
+  border-radius: 0.4rem;
+  box-shadow: 0 0.12rem 0.3rem rgba(0, 0, 0, 0.616);
+  background-color: #ffffffad;
+  border: 1px solid rgba(142, 31, 233, 0.247);
 }
 .card-content{
   font-size: 1rem;

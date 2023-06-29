@@ -16,11 +16,14 @@ constructor(private router: Router, private tokenService: TokenService) { }
      |Observable<boolean | UrlTree>
      | Promise<boolean | UrlTree> 
      | boolean | UrlTree {
-    if (this.tokenService.isLogged()) {
-      console.log('is logged')
+    if (this.tokenService.isLogged() && this.tokenService.userStorage.admin === true) {
+      console.log('is admin')
       return true;
+    }if (this.tokenService.isLogged() && this.tokenService.userStorage.admin === false) {
+      console.log('is user')
+      return this.router.navigate(['/']);
     }
-    return this.router.navigate(['login']);
+    return this.router.navigate(['/login']);
   }
   
 }

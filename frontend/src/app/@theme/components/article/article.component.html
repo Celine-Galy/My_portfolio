@@ -3,8 +3,10 @@
 class="min-w-20"></app-menu>
 
 <div class="container">
-  <h1>Dev & compagnie</h1>
-  <p>Retrouvez ici tous les articles de la catégorie "Développement Web"</p>
+  <div class="card">
+  <h1 class="ml-2">Développement web et autres facéties</h1>
+  <p class="ml-2">Retrouvez ici tous les articles de la catégorie "Développement Web"</p>
+</div>
   <div *ngIf="!categoryList" class="flex column">
       <div *ngFor="let article of articleList" class="card p-1">
        <div>

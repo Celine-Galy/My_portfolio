@@ -31,6 +31,7 @@ export interface Article {
   export interface ITokenUser {
     id: number
     username: string
+    admin: boolean
   };
   export interface ICredential {
     username: string

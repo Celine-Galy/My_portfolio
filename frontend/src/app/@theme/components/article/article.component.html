@@ -2,12 +2,12 @@
 <app-menu
 class="min-w-20"></app-menu>
 
-<div class="container">
+<div class="container w-100">
   <div class="card">
   <h1 class="ml-2">Développement web et autres facéties</h1>
   <p class="ml-2">Retrouvez ici tous les articles de la catégorie "Développement Web"</p>
 </div>
-  <div *ngIf="!categoryList" class="flex column">
+  <div class="flex column">
       <div *ngFor="let article of articleList" class="card p-1">
        <div>
         <img class="card-image" src="http://localhost:3000/articles/uploads/{{ article.image }}" width="300"/>
@@ -24,21 +24,4 @@ class="min-w-20"></app-menu>
   </div>
 </div>
 
-<div *ngIf="categoryList" class="flex column">
-  <div *ngFor="let category of categoryList" >
-    <div *ngFor="let article of category.articles" class="card p-1">
-       <div class="card-content ml-2">
-                  <h2 class="card-title">{{article.title}}</h2>
-                  <p class="card-subtitle">Publié le: {{article.date | date: 'dd/MM/yyyy'}}</p>
-      <img class="card-image" src="http://localhost:3000/articles/uploads/{{ article.image }}" width="300"/>
-
-      <p [innerHTML]="article.content"></p>
-      <div class="card-action">
-  <a [routerLink]="['/article', article.id]">Read more</a>
-   </div>
-  
-    </div>
-  </div>
-</div>
-</div>
 </div>

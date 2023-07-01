@@ -23,6 +23,9 @@ export class ArticleService {
   getArticle(id: number): Observable<Article> {
     return this.http.get<Article>(this.url + '/articles/' + id, httpOptions)
   }
+  getArticlesByCategory(category: string): Observable<Article[]> {
+    return this.http.get<Article[]>(this.url + '/articles/category/' + category, httpOptions)
+  }
   addArticle(article: Article) {
     return this.http.post(this.url + '/articles', article, httpOptions)
   }

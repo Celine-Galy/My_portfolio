@@ -33,11 +33,15 @@ export class ArticlesController {
   getImage(@Param('imgpath') imgpath, @Res() res): Observable<any> {
     return of(res.sendFile(join(process.cwd(), 'uploads/' + imgpath)));
   }
-
   @Public()
   @Get()
   getArticles() {
     return this.service.getArticles();
+  }
+  @Public()
+  @Get('category/:category')
+  getArticlesByCategory(@Param() params) {
+    return this.service.getArticlesByCategory(params.category);
   }
   @Post('upload')
   @UseInterceptors(FileInterceptor('file', { storage }))

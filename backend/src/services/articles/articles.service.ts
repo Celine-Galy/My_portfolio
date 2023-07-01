@@ -11,17 +11,30 @@ export class ArticlesService {
   async createArticle(article: Article) {
     return await this.articlesRepository.save(article);
   }
-
   async getArticles(): Promise<Article[]> {
     return await this.articlesRepository.find({
       relations: ['category'],
     });
   }
-
   async getArticle(_id: number): Promise<Article[]> {
     return await this.articlesRepository.find({
       select: ['id', 'title', 'content', 'date', 'published', 'category'],
       where: [{ id: _id }],
+    });
+  }
+  async getArticlesByCategory(category: string): Promise<Article[]> {
+    return await this.articlesRepository.find({
+      relations: ['category'],
+      select: [
+        'id',
+        'title',
+        'content',
+        'date',
+        'published',
+        'image',
+        'category',
+      ],
+      where: [{ category: { name: category } }],
     });
   }
   async updateArticle(article: Article) {

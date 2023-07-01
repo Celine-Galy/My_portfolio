@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Category } from '../category/category.entity';
 
 @Entity('articles')
@@ -28,6 +22,5 @@ export class Article {
   published: boolean;
 
   @ManyToOne(() => Category, (category) => category.articles)
-  @JoinColumn({ name: 'category', referencedColumnName: 'id' })
   category: Category;
 }

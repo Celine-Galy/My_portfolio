@@ -14,7 +14,7 @@ import { CategoryService } from "./category.service";
     }
     constructor(private categoryService: CategoryService) { }
 
-    public setSelectedCategory(category: Category) {
+    public setSelectedCategory(category: Category | undefined) {
         this._selectedCategory$.next(category)
     }
 

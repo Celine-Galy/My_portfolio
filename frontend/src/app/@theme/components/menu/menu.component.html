@@ -3,7 +3,7 @@
 <nav class="m-1">
     <h2 class="mb-2">Catégories</h2>
     <ul>
-        <li>Tous les articles</li>
+        <li (click)="displayAll()" class="m-1 pointer bold">Tous les articles</li>
     </ul>
     <ul *ngFor="let category of categoryList">
         <li (click)="searchByCategory(category.name)" value="selectedCategory" class="m-1 pointer">{{category.name}} ({{category.articles!.length}})</li>   

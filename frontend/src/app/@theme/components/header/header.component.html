@@ -1,12 +1,12 @@
-<header id="home" class="flex header">
+<header class="flex header">
     
 <div class="row modal">
    <h1>Céline Galy</h1>
     <h2>Conception & Développement Web</h2>
     <div class="flex row space-around">
         <div><a routerLink="/blog">Blog</a></div>
-        <div><a href="#portfolio">Portfolio</a></div>
-        <div><a href="#cv">Mon CV</a></div>
+        <div class="pointer" (click)="displayPortfolio()">Portfolio</div>
+        <div class="pointer" (click)="displayCv()">Mon CV</div>
     </div>
 </div>
 </header>

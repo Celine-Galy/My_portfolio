@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cv',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./cv.component.css']
 })
 export class CvComponent {
+@Input() public isCvVisible: boolean = false
 
+public showCv(){
+
+}
 }

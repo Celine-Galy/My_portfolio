@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-portfolio',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent {
+public isPortfolioVisible: boolean = false
 
+public displayPortfolio(){
+
+}
 }

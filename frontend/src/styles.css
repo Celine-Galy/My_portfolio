@@ -12,7 +12,9 @@ app-login {
   justify-content: center;
   align-items: center;
 }
-app-header {
+app-header,
+app-cv,
+app-portfolio {
   flex: 0 0 auto;
   height: 100vh;
   overflow: hidden;
@@ -183,6 +185,7 @@ body {
 .hidden{
   display: none;
  }
+
 .logo{
   margin-left: 1rem;
 }
@@ -192,7 +195,9 @@ body {
 .text-center{
   text-align: center;
 }
-
+ .visible{
+  display: block;
+ }
 /* ---------------------------------------------------------- */
 /* Buttons */
 /* ---------------------------------------------------------- */

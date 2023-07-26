@@ -1,5 +1,14 @@
-<app-header></app-header>
+<app-header
+[ngClass]="isHeaderVisible ? 'visible' : 'hidden'"
+>
+</app-header>
+
 <app-portfolio
-id="portfolio"></app-portfolio>
+[ngClass]="isPortfolioVisible ? 'visible' : 'hidden'"
+>
+</app-portfolio>
+
 <app-cv
-id="cv"></app-cv>
+
+[ngClass]="isCvVisible ? 'visible' : 'hidden'">
+</app-cv>
